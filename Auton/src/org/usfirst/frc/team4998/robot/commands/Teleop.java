@@ -1,18 +1,15 @@
-
 package org.usfirst.frc.team4998.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
-import org.usfirst.frc.team4998.robot.Robot;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
+public class Teleop extends CommandBase {
 
-    public ExampleCommand() {
+    public Teleop() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+        // eg. requires(chassis);
+    
     }
 
     // Called just before this Command runs the first time
@@ -21,6 +18,8 @@ public class ExampleCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	chassis.driveMecanum_Polar(oi.stick1Y(), oi.stick1X(), oi.stick1Twist());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
