@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4998.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
@@ -56,7 +57,18 @@ public class OI {
 	}
 	
 	
-	
+	Button rightbutton1 = new JoystickButton(stick,1),
+			rightbutton2 = new JoystickButton(stick,2),
+			rightbutton3 = new JoystickButton(stick,3),
+			rightbutton4 = new JoystickButton(stick,4),
+			rightbutton5 = new JoystickButton(stick,5),
+			rightbutton6 = new JoystickButton(stick,6),
+			rightbutton7 = new JoystickButton(stick,7),
+			rightbutton8 = new JoystickButton(stick,8),
+			rightbutton9 = new JoystickButton(stick,9),
+			rightbutton10 = new JoystickButton(stick,10),
+			rightbutton11 = new JoystickButton(stick,11),
+			rightbutton12 = new JoystickButton(stick,12);
 	
 }
 
