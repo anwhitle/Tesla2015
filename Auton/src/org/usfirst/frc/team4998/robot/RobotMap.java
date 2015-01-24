@@ -19,8 +19,10 @@ public class RobotMap {
 public static int JoystickPort = 0;
 
 	//variables for Jaguars
-public static final int Jag0Port = 0;
-public static final int Jag1Port = 1;
+public static final int VictorDriverFront = 0;
+public static final int VictorDriverBack = 1;
+public static final int VictorPassengerFront = 2;
+public static final int VictorPassengerBack = 3;
 
 
 

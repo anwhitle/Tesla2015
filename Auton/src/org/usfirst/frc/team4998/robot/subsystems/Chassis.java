@@ -2,13 +2,16 @@ package org.usfirst.frc.team4998.robot.subsystems;
 
 import org.usfirst.frc.team4998.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.VictorSP;
 
 public class Chassis {
-	final Jaguar Jag0 = new Jaguar(RobotMap.Jag0Port);	// right side
-	final Jaguar Jag1 = new Jaguar(RobotMap.Jag1Port);	// left side
-	RobotDrive drive = new RobotDrive(Jag0,Jag1);
+	final VictorSP Vic0 = new VictorSP(RobotMap.VictorDriverFront);	// right side
+	final VictorSP Vic1 = new VictorSP(RobotMap.VictorDriverBack);	// left side
+	final VictorSP Vic2 = new VictorSP(RobotMap.VictorPassengerFront);	// right side
+	final VictorSP Vic3 = new VictorSP(RobotMap.VictorPassengerBack);	// left side
+	RobotDrive drive = new RobotDrive(Vic0,Vic1);
+	RobotDrive mechanumDrive = new RobotDrive(Vic0,Vic1,Vic2,Vic3);
 	
 	public Chassis() {
 		
@@ -20,9 +23,9 @@ public class Chassis {
 	
 	//use cartesian for auton, use polar for teleop
 	public void driveMecanum_Cartesinian(double x, double y, double rotation, double gyroAngle){
-		drive.mecanumDrive_Cartesian(x, y, rotation, gyroAngle);
+		mechanumDrive.mecanumDrive_Cartesian(x, y, rotation, gyroAngle);
 	}
 	public void driveMecanum_Polar(double magnitude, double direction, double rotation){
-		drive.mecanumDrive_Polar(magnitude, direction, rotation);
+		mechanumDrive.mecanumDrive_Polar(magnitude, direction, rotation);
 	}
 }
