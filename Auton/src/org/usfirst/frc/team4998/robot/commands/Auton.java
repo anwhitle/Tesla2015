@@ -32,14 +32,14 @@ public class Auton extends CommandBase {
     	//robotArms.lift(0);
     	driveTime = timer.get() + 1.0;
     	while(timer.get()< driveTime){
-    		chassis.driveTank(0.5, -0.5);
+    	//	chassis.driveTank(0.5, -0.5);
     	}
-    	chassis.driveTank(0.0, 0.0);
+    	//chassis.driveTank(0.0, 0.0);
     	driveTime = timer.get() + 5;
     	while(timer.get()< driveTime){
-    		chassis.driveTank(0.5,0.5);
+    	//	chassis.driveTank(0.5,0.5);
     	}
-    	chassis.driveTank(0.0,0.0);
+    	//chassis.driveTank(0.0,0.0);
     }
 
 
