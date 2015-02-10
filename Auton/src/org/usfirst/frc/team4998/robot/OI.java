@@ -39,10 +39,22 @@ public class OI {
 	
 	
 	public static Joystick stick = new Joystick(RobotMap.JoystickPort);
+	public static Joystick stick2 = new Joystick(RobotMap.JoystickPort2);
 	
 	public static JoystickButton One = new JoystickButton(stick,1);
 	public static JoystickButton Two = new JoystickButton(stick,2);
 	
+	public double stick2X(){
+		return stick2.getX();
+	}
+	
+	public double stick2Y(){
+		return stick2.getY();
+	}
+	
+	public double stick2Twist(){
+		return stick2.getTwist();
+	}
 	
 	public double stick1X(){
 		return stick.getX();
@@ -57,7 +69,7 @@ public class OI {
 	}
 	
 	
-	Button rightbutton1 = new JoystickButton(stick,1),
+	public Button rightbutton1 = new JoystickButton(stick,1),
 			rightbutton2 = new JoystickButton(stick,2),
 			rightbutton3 = new JoystickButton(stick,3),
 			rightbutton4 = new JoystickButton(stick,4),

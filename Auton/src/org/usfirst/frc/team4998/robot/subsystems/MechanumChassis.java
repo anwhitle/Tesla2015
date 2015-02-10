@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4998.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Victor;
 
@@ -13,12 +14,13 @@ public class MechanumChassis extends Subsystem {
     private double SECS_TO_FULL_SPEED;
     private double INIT_SPEED;
     double REDUCE = 1;
-    public boolean useGyro = false;
+    public boolean useGyro = true;
     
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
         gyro = new Gyro(RobotMap.Gyro);
+        gyro.initGyro();
         
         frontLeft   = new Victor (RobotMap.VictorDriverFront);
         frontRight  = new Victor (RobotMap.VictorPassengerFront);
@@ -40,6 +42,7 @@ public class MechanumChassis extends Subsystem {
         }
  
         double gyroDeg = gyro.getAngle() % 360 + 180;
+        SmartDashboard.putNumber("gyro", gyroDeg);
         if (!useGyro) gyroDeg = 180;
  
         // this section should stop the rapid flip-flop of pos/neg values.
@@ -173,5 +176,9 @@ public class MechanumChassis extends Subsystem {
  
     public double getInitSpeed() {
         return this.INIT_SPEED;
+    }
+    
+    public void resetGyro() {
+    	gyro.reset();
     }
 }

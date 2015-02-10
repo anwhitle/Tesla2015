@@ -17,6 +17,7 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	//variable for joystick
 public static int JoystickPort = 0;
+public static int JoystickPort2 = 1;
 
 	//variables for Jaguars
 public static final int VictorDriverFront = 0;

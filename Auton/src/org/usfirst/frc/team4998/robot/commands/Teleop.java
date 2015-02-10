@@ -19,7 +19,10 @@ public class Teleop extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//chassis.driveMecanum_Polar(oi.stick1Y(), oi.stick1X(), oi.stick1Twist());
-    	mechChassis.drive(oi.stick1Y(), oi.stick1X(), oi.stick1Twist());
+    	mechChassis.drive(oi.stick1X(), oi.stick2Y(), oi.stick1Twist());
+    	if (oi.rightbutton1.get()){
+    		mechChassis.resetGyro();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
