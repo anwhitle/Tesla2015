@@ -42,6 +42,7 @@ public class OI {
 	
 	public static JoystickButton One = new JoystickButton(stick,1);
 	public static JoystickButton Two = new JoystickButton(stick,2);
+	public static JoystickButton Three = new JoystickButton(stick,3);
 	
 	
 	public double stick1X(){
