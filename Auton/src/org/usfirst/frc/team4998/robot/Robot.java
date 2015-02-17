@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
+import edu.wpi.first.wpilibj.CameraServer;
 import org.usfirst.frc.team4998.robot.commands.Teleop;
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,6 +18,8 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 
+	CameraServer server;
+
     Command autonomousCommand, teleopCommand;
 
     /**
@@ -28,6 +30,11 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         teleopCommand = new Teleop();
+        
+        server = CameraServer.getInstance();
+        server.setQuality(50);
+        //the camera name (ex "cam0") can be found through the roborio web interface
+        server.startAutomaticCapture("cam0");
     }
 	
 	public void disabledPeriodic() {
