@@ -2,30 +2,47 @@ package org.usfirst.frc.team4998.robot.subsystems;
 
 import org.usfirst.frc.team4998.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Chassis {
-	final VictorSP Vic0 = new VictorSP(RobotMap.VictorDriverFront);	// right side
-	final VictorSP Vic1 = new VictorSP(RobotMap.VictorDriverBack);	// left side
-	final VictorSP Vic2 = new VictorSP(RobotMap.VictorPassengerFront);	// right side
-	final VictorSP Vic3 = new VictorSP(RobotMap.VictorPassengerBack);	// left side
-	RobotDrive drive = new RobotDrive(Vic0,Vic1);
-	RobotDrive mechanumDrive = new RobotDrive(Vic0,Vic1,Vic2,Vic3);
-	
-	public Chassis() {
-		
-	}
-	
-	public void driveTank(double rightSpeed, double leftSpeed){
-		drive.tankDrive(leftSpeed, rightSpeed);
-	}
-	
-	//use cartesian for auton, use polar for teleop
-	public void driveMecanum_Cartesinian(double x, double y, double rotation, double gyroAngle){
-		mechanumDrive.mecanumDrive_Cartesian(x, y, rotation, gyroAngle);
-	}
-	public void driveMecanum_Polar(double magnitude, double direction, double rotation){
-		mechanumDrive.mecanumDrive_Polar(magnitude, direction, rotation);
-	}
+/**
+ *
+ */
+public class Chassis extends Subsystem {
+    VictorSP frontLeft,frontRight,rearLeft,rearRight;
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+
+    public void initDefaultCommand() {
+    	frontLeft   = new VictorSP (RobotMap.VictorDriverFront);
+        frontRight  = new VictorSP (RobotMap.VictorPassengerFront);
+        rearLeft    = new VictorSP (RobotMap.VictorDriverBack);
+        rearRight   = new VictorSP (RobotMap.VictorPassengerBack);
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    }
+    public void drive(double x, double y, double z){
+    	if (Math.abs(y) >= 0.15){   			
+    		frontLeft.set(y);
+    		frontRight.set(y);
+    		rearLeft.set(y);
+    		rearRight.set(y);
+    	} else if(Math.abs(x) >= 0.15){
+    		frontLeft.set(x*-1);
+    		frontRight.set(x);
+    		rearLeft.set(x);
+    		rearRight.set(x*-1);
+    	} else if (Math.abs(z) >= 0.15){
+    		frontLeft.set(z);
+    		frontRight.set(z*-1);
+    		rearLeft.set(z);
+    		rearRight.set(z*-1);
+    	} else {
+    		frontLeft.set(0);
+    		frontRight.set(0);
+    		rearLeft.set(0);
+    		rearRight.set(0);
+    	}
+    }
 }
+

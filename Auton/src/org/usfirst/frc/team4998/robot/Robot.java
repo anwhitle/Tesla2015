@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
+//import edu.wpi.first.wpilibj.CameraServer;
 import org.usfirst.frc.team4998.robot.commands.Teleop;
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -14,8 +14,15 @@ import org.usfirst.frc.team4998.robot.commands.Teleop;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+	
 public class Robot extends IterativeRobot {
-
+	
+	/*CameraServer server;
+	server = CameraServer.getInstance();
+    server.setQuality(50);
+    //the camera name (ex "cam0") can be found through the roborio web interface
+    server.startAutomaticCapture("cam0");*/
+	
 	public static OI oi;
 
     Command autonomousCommand, teleopCommand;

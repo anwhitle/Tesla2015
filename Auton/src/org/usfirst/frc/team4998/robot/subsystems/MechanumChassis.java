@@ -2,12 +2,12 @@ package org.usfirst.frc.team4998.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Gyro;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.VictorSP;
 
 import org.usfirst.frc.team4998.robot.RobotMap;
 
 public class MechanumChassis extends Subsystem {
-    private Victor frontLeft, frontRight, rearLeft, rearRight;
+    private VictorSP frontLeft, frontRight, rearLeft, rearRight;
     private Gyro gyro;
  
     private double SECS_TO_FULL_SPEED;
@@ -20,10 +20,10 @@ public class MechanumChassis extends Subsystem {
 		// TODO Auto-generated method stub
         gyro = new Gyro(RobotMap.Gyro);
         
-        frontLeft   = new Victor (RobotMap.VictorDriverFront);
-        frontRight  = new Victor (RobotMap.VictorPassengerFront);
-        rearLeft    = new Victor (RobotMap.VictorDriverBack);
-        rearRight   = new Victor (RobotMap.VictorPassengerBack);
+        frontLeft   = new VictorSP (RobotMap.VictorDriverFront);
+        frontRight  = new VictorSP (RobotMap.VictorPassengerFront);
+        rearLeft    = new VictorSP (RobotMap.VictorDriverBack);
+        rearRight   = new VictorSP (RobotMap.VictorPassengerBack);
  
         SECS_TO_FULL_SPEED = 1.5;
         INIT_SPEED = 0.3;
@@ -31,8 +31,6 @@ public class MechanumChassis extends Subsystem {
 	}
  
     public void drive(double right, double forward, double clockwise) {
-        if (Math.abs(clockwise) < 0.1)
-            clockwise = 0;
  
         if (Math.abs(right*right + forward*forward) < 0.1) {
             forward = 0;
@@ -126,7 +124,7 @@ public class MechanumChassis extends Subsystem {
         return x;
     }
  
-    private double limitSpeed(double force, Victor motor) {
+    private double limitSpeed(double force, VictorSP motor) {
         final int sign = sign(force);
  
         force = Math.abs(force);
