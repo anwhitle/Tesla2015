@@ -11,15 +11,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class Sensors extends Subsystem {
- Ultrasonic ultrasonic1 = new Ultrasonic(1 , 2);
- Ultrasonic ultrasonic2 = new Ultrasonic(3 , 4);
- Encoder encoder1 = new Encoder(1 , 2);
- Encoder encoder2 = new Encoder(3 , 4);
-    Double x, y;
+ Ultrasonic ultrasonic1 = new Ultrasonic(RobotMap.ultrasonic1port1 , RobotMap.ultrasonic1port2);
+ Ultrasonic ultrasonic2 = new Ultrasonic(RobotMap.ultrasonic2port1 , RobotMap.ultrasonic2port2);
+ Encoder encoder1 = new Encoder(RobotMap.encoder1port1 , RobotMap.encoder1port2);
+ Encoder encoder2 = new Encoder(RobotMap.encoder2port1 , RobotMap.encoder2port2);
+    Double x , y , previousX , previousY;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
+    	previousX = 0.0;
+    	previousY = 0.0;
     
      //x = getX();
      //y = getY();
@@ -41,12 +43,20 @@ public class Sensors extends Subsystem {
     }
     
     public void updateX(){
-     x = x + encoder1.getDistance();
-     SmartDashboard.putNumber("Xvalue", x);
+	    previousX = x;
+	     x = x + encoder1.getDistance();
+	     SmartDashboard.putNumber("Xvalue", x);
     }
     
     public void updateY(){
-     y = y + encoder2.getDistance();
-     SmartDashboard.putNumber("Yvalue", y);
+    	previousY = y;
+	     y = y + encoder2.getDistance();
+	     SmartDashboard.putNumber("Yvalue", y);
+    }
+    public double calculateCX(){
+    	return x - previousX;
+    }
+    public double calculateCY(){
+    	return y - previousY;
     }
 }

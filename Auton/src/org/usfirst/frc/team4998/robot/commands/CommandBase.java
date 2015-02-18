@@ -10,6 +10,7 @@ public class CommandBase extends CommandGroup {
     OI oi = new OI();
     Lift lift = new Lift();
     Chassis chassis = new Chassis();
+    Sensors sensors = new Sensors();
     //MechanumChassis chassis = new MechanumChassis(); 
     
     public  CommandBase() {

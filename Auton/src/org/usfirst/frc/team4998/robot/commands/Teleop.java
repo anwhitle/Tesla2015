@@ -19,7 +19,7 @@ public class Teleop extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//chassis.driveMecanum_Polar(oi.stick1Y(), oi.stick1X(), oi.stick1Twist());
-    	if (oi.getStick1Button1()){
+    	if (oi.getStick1Button3()){
     		if (diableDrive)
     			diableDrive = false;
     		else
@@ -28,23 +28,25 @@ public class Teleop extends CommandBase {
     	
     	if (!diableDrive){
     		if (Math.abs(oi.stick1Twist()) >= 0.1){
-    			chassis.drive(0, 0, oi.stick1Twist());
+    			chassis.drive(0, 0, oi.stick1Twist(), 0);
     		} else if (Math.abs(oi.stick1X()) >= 0.1){
-    			chassis.drive(oi.stick1X(), 0, 0);
+    			chassis.drive(oi.stick1X(), 0, 0, sensors.calculateCX());
     		} else if (Math.abs(oi.stick1Y()) >= 0.1){
-    			chassis.drive(0,oi.stick1Y(), 0);
+    			chassis.drive(0,oi.stick1Y(), 0, sensors.calculateCY());
     		} else {
-    			chassis.drive(0, 0, 0);
+    			chassis.drive(0, 0, 0, 0);
     		}
     		//chassis.drive(oi.stick1X(), oi.stick1Y(), oi.stick1Twist());
     	}
-    	if (oi.One.get()){
+    	if (oi.getStick1Button1()){
     		lift.move(1);
-    	} else if (oi.Two.get()){
+    	} else if (oi.getStick1Button2()){
     		lift.move(-1);
     	} else {
     		lift.move(0);
     	}
+    	sensors.updateX();
+    	sensors.updateY();
     }
 
     // Make this return true when this Command no longer needs to run execute()

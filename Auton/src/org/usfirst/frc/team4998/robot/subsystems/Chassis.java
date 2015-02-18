@@ -21,17 +21,17 @@ public class Chassis extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void drive(double x, double y, double z){
+    public void drive(double x, double y, double z, double c){
     	if (Math.abs(y) >= 0.1){   			
-    		frontLeft.set(y*-1);
-    		frontRight.set(y);
-    		rearLeft.set(y*-1);
-    		rearRight.set(y);
+    		frontLeft.set((y + c)*-1 * calcPropValue( y , c ) );
+    		frontRight.set((y - c)* calcPropValue( y , c ) );
+    		rearLeft.set((y + c)*-1 * calcPropValue( y , c ) );
+    		rearRight.set((y - c)* calcPropValue( y , c ) );
     	} else if(Math.abs(x) >= 0.1){
-    		frontLeft.set(x);
-    		frontRight.set(x);
-    		rearLeft.set(x*-1);
-    		rearRight.set(x*-1);
+    		frontLeft.set((x + c)* calcPropValue( x , c ) );
+    		frontRight.set((x + c)* calcPropValue( x , c ) );
+    		rearLeft.set((x - c)*-1 * calcPropValue( x , c ) );
+    		rearRight.set((x - c)*-1 * calcPropValue( x , c ) );
     	} else if (Math.abs(z) >= 0.1){
     		frontLeft.set(z);
     		frontRight.set(z);
@@ -43,6 +43,10 @@ public class Chassis extends Subsystem {
     		rearLeft.set(0);
     		rearRight.set(0);
     	}
+    }
+    
+    public double calcPropValue(double value, double c){
+    	return value / (c + value);
     }
 }
 

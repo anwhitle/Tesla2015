@@ -30,5 +30,14 @@ public static final int Gyro = 0;
 public static final double distancePerPulse1 = 1;
 public static final double distancePerPulse2 = 1;
 
+public static final int ultrasonic1port1 = 0;
+public static final int ultrasonic1port2 = 1;
+public static final int ultrasonic2port1 = 2;
+public static final int ultrasonic2port2 = 3;
+
+public static final int encoder1port1 = 0;
+public static final int encoder1port2 = 1;
+public static final int encoder2port1 = 2;
+public static final int encoder2port2 = 3;
 
 }
