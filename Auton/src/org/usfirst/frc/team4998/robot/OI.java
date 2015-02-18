@@ -44,7 +44,17 @@ public class OI {
 	public static JoystickButton Two = new JoystickButton(stick,2);
 	public static JoystickButton Three = new JoystickButton(stick,3);
 	
+	public boolean getStick1Button1(){
+		return One.get();
+	}
 	
+	public boolean getStick1Button2(){
+		return Two.get();
+	}
+	
+	public boolean getStick1Button3(){
+		return Three.get();
+	}
 	public double stick1X(){
 		return stick.getX();
 	}

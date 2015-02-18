@@ -22,21 +22,21 @@ public class Chassis extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void drive(double x, double y, double z){
-    	if (Math.abs(y) >= 0.15){   			
-    		frontLeft.set(y);
+    	if (Math.abs(y) >= 0.1){   			
+    		frontLeft.set(y*-1);
     		frontRight.set(y);
-    		rearLeft.set(y);
+    		rearLeft.set(y*-1);
     		rearRight.set(y);
-    	} else if(Math.abs(x) >= 0.15){
-    		frontLeft.set(x*-1);
+    	} else if(Math.abs(x) >= 0.1){
+    		frontLeft.set(x);
     		frontRight.set(x);
-    		rearLeft.set(x);
+    		rearLeft.set(x*-1);
     		rearRight.set(x*-1);
-    	} else if (Math.abs(z) >= 0.15){
+    	} else if (Math.abs(z) >= 0.1){
     		frontLeft.set(z);
-    		frontRight.set(z*-1);
+    		frontRight.set(z);
     		rearLeft.set(z);
-    		rearRight.set(z*-1);
+    		rearRight.set(z);
     	} else {
     		frontLeft.set(0);
     		frontRight.set(0);
