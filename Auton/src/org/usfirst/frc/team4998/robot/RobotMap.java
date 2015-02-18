@@ -27,7 +27,8 @@ public static final int VictorPassengerBack = 3;
    //variables for sensors
 public static final int Gyro = 0;
 
-
+public static final double distancePerPulse1 = 1;
+public static final double distancePerPulse2 = 1;
 
 
 }
