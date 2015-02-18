@@ -27,11 +27,11 @@ public class Teleop extends CommandBase {
     	}
     	
     	if (!diableDrive){
-    		if (Math.abs(oi.stick1Twist()) >= 0.1){
+    		if (Math.abs(oi.stick1Twist()) >= 0.15){
     			chassis.drive(0, 0, oi.stick1Twist(), 0);
-    		} else if (Math.abs(oi.stick1X()) >= 0.1){
+    		} else if (Math.abs(oi.stick1X()) >= 0.15){
     			chassis.drive(oi.stick1X(), 0, 0, sensors.calculateCX());
-    		} else if (Math.abs(oi.stick1Y()) >= 0.1){
+    		} else if (Math.abs(oi.stick1Y()) >= 0.15){
     			chassis.drive(0,oi.stick1Y(), 0, sensors.calculateCY());
     		} else {
     			chassis.drive(0, 0, 0, 0);

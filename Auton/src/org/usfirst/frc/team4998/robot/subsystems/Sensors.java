@@ -45,7 +45,11 @@ public class Sensors extends Subsystem {
     public void updateX(){
 	    previousX = x;
 	     x = x + encoder1.getDistance();
+	     SmartDashboard.putNumber("Xget", encoder1.get());
+	     SmartDashboard.putNumber("XRaw", encoder1.getRaw());
+	     SmartDashboard.putNumber("XPeriod", encoder1.getPeriod());
 	     SmartDashboard.putNumber("Xvalue", x);
+	     SmartDashboard.putNumber("Xdistance", encoder1.getDistance()); 
     }
     
     public void updateY(){
