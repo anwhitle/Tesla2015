@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Chassis extends Subsystem {
     VictorSP frontLeft,frontRight,rearLeft,rearRight;
+    double fixVictorIssue = 0.95;
+    double fixVictorIssue2 = 0.98;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -22,29 +24,35 @@ public class Chassis extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void drive(double x, double y, double z, double c){
-    	if (Math.abs(y) >= 0.15){   			
+    	if (Math.abs(y) >= 0.2){   			
     		/*frontLeft.set((y + c)*-1 * calcPropValue( y , c ) );
     		frontRight.set((y - c)* calcPropValue( y , c ) );
     		rearLeft.set((y + c)*-1 * calcPropValue( y , c ) );
     		rearRight.set((y - c)* calcPropValue( y , c ) );*/
-    		frontLeft.set(y * -1);
-    		frontRight.set(y);
+    		frontLeft.set(y * fixVictorIssue * -1);
+    		frontRight.set(y * fixVictorIssue2);
     		rearLeft.set(y * -1);
-    		rearRight.set(y);
-    	} else if(Math.abs(x) >= 0.15){
+    		rearRight.set(y * fixVictorIssue2);
+    		if (y < 0) {
+        		frontLeft.set(y * -1 * fixVictorIssue);
+        		frontRight.set(y * fixVictorIssue2);
+        		rearLeft.set(y * -1);
+        		rearRight.set(y * fixVictorIssue2);
+    		}
+    	} else if(Math.abs(x) >= 0.2){
     		/*frontLeft.set((x + c)* calcPropValue( x , c ) );
     		frontRight.set((x + c)* calcPropValue( x , c ) );
     		rearLeft.set((x - c)*-1 * calcPropValue( x , c ) );
     		rearRight.set((x - c)*-1 * calcPropValue( x , c ) );*/
-    		frontLeft.set(x);
-    		frontRight.set(x);
+    		frontLeft.set(x * fixVictorIssue);
+    		frontRight.set(x * fixVictorIssue2);
     		rearLeft.set(x * -1);
-    		rearRight.set(x * -1);
-    	} else if (Math.abs(z) >= 0.15){
-    		frontLeft.set(z);
-    		frontRight.set(z);
+    		rearRight.set(x * -1 * fixVictorIssue2);
+    	} else if (Math.abs(z) >= 0.2){
+    		frontLeft.set(z * fixVictorIssue);
+    		frontRight.set(z * fixVictorIssue2);
     		rearLeft.set(z);
-    		rearRight.set(z);
+    		rearRight.set(z * fixVictorIssue2);
     	} else {
     		frontLeft.set(0);
     		frontRight.set(0);
