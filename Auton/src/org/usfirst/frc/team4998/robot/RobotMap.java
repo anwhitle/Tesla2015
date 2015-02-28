@@ -40,4 +40,12 @@ public static final int encoder1port2 = 7;
 public static final int encoder2port1 = 8;
 public static final int encoder2port2 = 9;
 
+public static final double setMaxPeriod1 = .1;
+public static final double setMaxPeriod2 = .1;
+
+public static final int setMinRate1 = 10;
+public static final int setMinRate2 = 10;
+
+public static final int setSamplesToAverage1 = 7;
+public static final int setSamplesToAverage2 = 7;
 }

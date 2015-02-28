@@ -13,6 +13,8 @@ public class Auton extends CommandBase {
     public Auton() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(chassis);
+    	requires(lift);
     }
 
     // Called just before this Command runs the first time
@@ -27,19 +29,19 @@ public class Auton extends CommandBase {
     	//robotArms.grab();
     	driveTime = timer.get() + 0.5;
     	while(timer.get()< driveTime){
-    		//robotArms.lift(.5);
+    		lift.move(.5);
     	}
-    	//robotArms.lift(0);
+    	lift.move(0);
     	driveTime = timer.get() + 1.0;
     	while(timer.get()< driveTime){
-    	//	chassis.driveTank(0.5, -0.5);
+    		chassis.drive(0.5, -0.5, 0, 0);
     	}
-    	//chassis.driveTank(0.0, 0.0);
+    	chassis.drive(0, 0, 0, 0);
     	driveTime = timer.get() + 5;
     	while(timer.get()< driveTime){
-    	//	chassis.driveTank(0.5,0.5);
+    		chassis.drive(0.5, -0.5, 0, 0);
     	}
-    	//chassis.driveTank(0.0,0.0);
+    	chassis.drive(0, 0, 0, 0);
     }
 
 
