@@ -38,48 +38,65 @@ public class OI {
 	
 	
 	
-	public static Joystick stick = new Joystick(RobotMap.JoystickPort);
+	public static Joystick stick1 = new Joystick(RobotMap.Joystick1Port);
+	public static Joystick stick2 = new Joystick(RobotMap.Joystick2Port);
 	
-	public static JoystickButton One = new JoystickButton(stick,1);
-	public static JoystickButton Two = new JoystickButton(stick,2);
-	public static JoystickButton Three = new JoystickButton(stick,3);
+	public static JoystickButton joy1Button1 = new JoystickButton(stick1,1);
+	public static JoystickButton joy1Button2 = new JoystickButton(stick1,2);
+	public static JoystickButton joy1Button3 = new JoystickButton(stick1,3);
+	public static JoystickButton joy2Button1 = new JoystickButton(stick2,1);
+	public static JoystickButton joy2Button2 = new JoystickButton(stick2,2);
+	public static JoystickButton joy2Button3 = new JoystickButton(stick2,3);
 	
 	public boolean getStick1Button1(){
-		return One.get();
+		return joy1Button1.get();
 	}
 	
 	public boolean getStick1Button2(){
-		return Two.get();
+		return joy1Button2.get();
 	}
 	
 	public boolean getStick1Button3(){
-		return Three.get();
+		return joy1Button3.get();
 	}
+	
+	public boolean getStick2Button1(){
+		return joy2Button1.get();
+	}
+	
+	public boolean getStick2Button2(){
+		return joy2Button2.get();
+	}
+	
+	public boolean getStick2Button3(){
+		return joy2Button3.get();
+	}
+	
 	public double stick1X(){
-		return stick.getX();
+		return stick1.getX();
 	}
 	
 	public double stick1Y(){
-		return stick.getY();
+		return stick1.getY();
 	}
 	
 	public double stick1Twist(){
-		return stick.getTwist();
+		return stick1.getTwist();
 	}
 	
 	
-	Button rightbutton1 = new JoystickButton(stick,1),
-			rightbutton2 = new JoystickButton(stick,2),
-			rightbutton3 = new JoystickButton(stick,3),
-			rightbutton4 = new JoystickButton(stick,4),
-			rightbutton5 = new JoystickButton(stick,5),
-			rightbutton6 = new JoystickButton(stick,6),
-			rightbutton7 = new JoystickButton(stick,7),
-			rightbutton8 = new JoystickButton(stick,8),
-			rightbutton9 = new JoystickButton(stick,9),
-			rightbutton10 = new JoystickButton(stick,10),
-			rightbutton11 = new JoystickButton(stick,11),
-			rightbutton12 = new JoystickButton(stick,12);
+	Button rightbutton1 = new JoystickButton(stick1,1),
+			rightbutton2 = new JoystickButton(stick1,2),
+			rightbutton3 = new JoystickButton(stick1,3),
+			rightbutton4 = new JoystickButton(stick1,4),
+			rightbutton5 = new JoystickButton(stick1,5),
+			rightbutton6 = new JoystickButton(stick1,6),
+			rightbutton7 = new JoystickButton(stick1,7),
+			rightbutton8 = new JoystickButton(stick1,8),
+			rightbutton9 = new JoystickButton(stick1,9),
+			rightbutton10 = new JoystickButton(stick1,10),
+			rightbutton11 = new JoystickButton(stick1,11),
+			rightbutton12 = new JoystickButton(stick1,12);
 	
 }
 

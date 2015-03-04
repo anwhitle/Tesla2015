@@ -38,13 +38,15 @@ public class Teleop extends CommandBase {
     		}
     		//chassis.drive(oi.stick1X(), oi.stick1Y(), oi.stick1Twist());
     	}
-    	if (oi.getStick1Button1()){
+    	if (oi.getStick2Button1()){
     		lift.move(1);
-    	} else if (oi.getStick1Button2()){
+    	} else if (oi.getStick2Button2()){
     		lift.move(-1);
     	} else {
     		lift.move(0);
     	}
+    	
+    	sensors.sensorsToDash();
     	//sensors.updateX();
     	//sensors.updateY();
     }

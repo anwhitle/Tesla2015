@@ -5,8 +5,10 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.CameraServer;
+//import edu.wpi.first.wpilibj.CameraServer;
 import org.usfirst.frc.team4998.robot.commands.Teleop;
+//import com.ni.vision.NIVision;
+//import com.ni.vision.NIVision.Image;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -18,7 +20,9 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 
-	CameraServer server;
+	//CameraServer server;
+    //int session;
+    //Image frame;
 
     Command autonomousCommand, teleopCommand;
 
@@ -31,10 +35,16 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         teleopCommand = new Teleop();
         
-        server = CameraServer.getInstance();
-        server.setQuality(50);
+        //frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
+
+        // the camera name (ex "cam0") can be found through the roborio web interface
+        //session = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+        //NIVision.IMAQdxConfigureGrab(session);
+        
+        //server = CameraServer.getInstance();
+        //server.setQuality(50);
         //the camera name (ex "cam0") can be found through the roborio web interface
-        server.startAutomaticCapture("cam0");
+        //server.startAutomaticCapture("cam0");
     }
 	
 	public void disabledPeriodic() {
@@ -68,6 +78,7 @@ public class Robot extends IterativeRobot {
      */
     public void disabledInit(){
     	  if (teleopCommand != null) teleopCommand.cancel();
+    	  //NIVision.IMAQdxStopAcquisition(session);
     }
 
     /**
@@ -75,6 +86,10 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        //NIVision.IMAQdxGrab(session, frame, 1);
+        //CameraServer.getInstance().setImage(frame);
+        
     }
     
     /**

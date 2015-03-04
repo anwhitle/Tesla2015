@@ -26,22 +26,28 @@ public class Auton extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//robotArms.grab();
-    	driveTime = timer.get() + 0.5;
-    	while(timer.get()< driveTime){
+    	
+    	driveTime = timer.get() + 1.0;
+    	while(timer.get()< driveTime){		//lift for 1 second
     		lift.move(.5);
     	}
-    	lift.move(0);
-    	driveTime = timer.get() + 1.0;
-    	while(timer.get()< driveTime){
-    		chassis.drive(0.5, -0.5, 0, 0);
+    	
+    	lift.move(0);						//stop lift
+    	
+    	driveTime = timer.get() + 0.5;
+    	while(timer.get()< driveTime){		//turn right for 0.5 seconds		
+    		chassis.drive(0.5, 0, 0, 0);
     	}
-    	chassis.drive(0, 0, 0, 0);
+    	
+    	chassis.drive(0, 0, 0, 0);			//stop turning
+    	
     	driveTime = timer.get() + 5;
-    	while(timer.get()< driveTime){
-    		chassis.drive(0.5, -0.5, 0, 0);
+    	while(timer.get()< driveTime){		//Move forward for 5 seconds
+    		chassis.drive(0, 0.5, 0, 0);
     	}
-    	chassis.drive(0, 0, 0, 0);
+    	
+    	chassis.drive(0, 0, 0, 0);			//Stop moving
+    
     }
 
 
