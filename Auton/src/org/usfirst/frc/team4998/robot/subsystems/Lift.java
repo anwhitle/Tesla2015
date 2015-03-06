@@ -1,14 +1,17 @@
 package org.usfirst.frc.team4998.robot.subsystems;
 
 //import edu.wpi.first.wpilibj.DigitalInput;
+import org.usfirst.frc.team4998.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
 public class Lift extends Subsystem {
-	Talon talon1 = new Talon(4);
-	Talon talon2 = new Talon(5);
+	Talon talon1 = new Talon(RobotMap.talon1);
+	Talon talon2 = new Talon(RobotMap.talon2);
+	
     // Put methods for controlling this subsystem
     // here. Call these from Commands
 	//DigitalInput topStop = new DigitalInput(0);

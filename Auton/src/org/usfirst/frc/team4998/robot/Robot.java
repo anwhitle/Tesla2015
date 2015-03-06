@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 //import edu.wpi.first.wpilibj.CameraServer;
 import org.usfirst.frc.team4998.robot.commands.Teleop;
+import org.usfirst.frc.team4998.robot.commands.PickupAuton;
+import org.usfirst.frc.team4998.robot.commands.MoveAuton;
 //import com.ni.vision.NIVision;
 //import com.ni.vision.NIVision.Image;
 /**
@@ -34,6 +36,12 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         teleopCommand = new Teleop();
+        
+        if (RobotMap.autonChoice == 1){
+        	autonomousCommand = new PickupAuton();
+        } else {
+        	autonomousCommand = new MoveAuton();
+        }
         
         //frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 

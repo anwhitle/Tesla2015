@@ -13,19 +13,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class Sensors extends Subsystem {
-	Ultrasonic ultrasonic1;
+	/*Ultrasonic ultrasonic1;
 	Ultrasonic ultrasonic2;
 	Encoder encoder1;
 	Encoder encoder2;
 	Double x , y , previousX , previousY;
     Gyro gyro;
+    */
     public void initDefaultCommand() {
-    	
+    	/*
     	ultrasonic1 = new Ultrasonic(RobotMap.ultrasonic1port1 , RobotMap.ultrasonic1port2);
     	ultrasonic2 = new Ultrasonic(RobotMap.ultrasonic2port1 , RobotMap.ultrasonic2port2);
     	encoder1 = new Encoder(RobotMap.encoder1port1 , RobotMap.encoder1port2, true, EncodingType.k4X);
     	encoder2 = new Encoder(RobotMap.encoder2port1 , RobotMap.encoder2port2, true, EncodingType.k4X);
     	gyro = new Gyro(RobotMap.Gyro);
+    	
     	previousX = 0.0;
     	previousY = 0.0;
     
@@ -46,21 +48,22 @@ public class Sensors extends Subsystem {
      
      encoder1.setSamplesToAverage(RobotMap.setSamplesToAverage1);
      encoder2.setSamplesToAverage(RobotMap.setSamplesToAverage2);
+     */
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public Double getX(){
-     return ultrasonic1.getRangeMM();
-    }
+    //public Double getX(){
+     //return ultrasonic1.getRangeMM();
+    //}
     
-    public Double getY(){
-     return ultrasonic2.getRangeMM();
-    }
+    //public Double getY(){
+    // return ultrasonic2.getRangeMM();
+    //}
     
-    public void updateX(){
-	    previousX = x;
-	     x = x + encoder1.getDistance();
+    //public void updateX(){
+	  //  previousX = x;
+	    // x = x + encoder1.getDistance();
 	     /*
 	     System.out.println("Xget" + encoder1.get());
 	     System.out.println("XRaw" + encoder1.getRaw());
@@ -73,11 +76,11 @@ public class Sensors extends Subsystem {
 	     SmartDashboard.putNumber("Xvalue", x);
 	     SmartDashboard.putNumber("Xdistance", encoder1.getDistance());
 	     */ 
-    }
+    //}
     
-    public void updateY(){
-	    previousY = y;
-	     y = y + encoder2.getDistance();
+    //public void updateY(){
+	 //   previousY = y;
+	   //  y = y + encoder2.getDistance();
 	     /*
 	     System.out.println("Yget" + encoder2.get());
 	     System.out.println("YRaw" + encoder2.getRaw());
@@ -90,8 +93,8 @@ public class Sensors extends Subsystem {
 	     SmartDashboard.putNumber("Yvalue", y);
 	     SmartDashboard.putNumber("Ydistance", encoder2.getDistance());
 	     */ 
-    }
-    
+    //}
+    /*
     public double calculateCX(){
     	return x - previousX;
     }
@@ -106,4 +109,5 @@ public class Sensors extends Subsystem {
     	SmartDashboard.putNumber("Encoder1", encoder1.getDistance());
     	SmartDashboard.putNumber("Encoder2", encoder2.getDistance());
     }
+    */
 }

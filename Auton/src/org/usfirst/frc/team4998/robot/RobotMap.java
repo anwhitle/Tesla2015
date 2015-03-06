@@ -49,4 +49,9 @@ public static final int setMinRate2 = 10;
 
 public static final int setSamplesToAverage1 = 7;
 public static final int setSamplesToAverage2 = 7;
+
+public static final int autonChoice = 1;
+
+public static final int talon1 = 4;
+public static final int talon2 = 5;
 }

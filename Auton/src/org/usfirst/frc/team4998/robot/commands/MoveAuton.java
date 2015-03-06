@@ -1,23 +1,36 @@
 package org.usfirst.frc.team4998.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Timer;
+
 
 /**
  *
  */
-public class GetPositions extends Command {
-
-    public GetPositions() {
+public class MoveAuton extends CommandBase {
+	double driveTime;
+	Timer timer;
+	
+    public MoveAuton() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	timer = new Timer();
+    	timer.start();
+    	driveTime = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	driveTime = timer.get() + 5;
+    	while(timer.get()< driveTime){		//Move forward for 5 seconds
+    		chassis.drive(0, 0.5, 0, 0);
+    	}
+    	
+    	chassis.drive(0, 0, 0, 0);			//Stop moving
     }
 
     // Make this return true when this Command no longer needs to run execute()

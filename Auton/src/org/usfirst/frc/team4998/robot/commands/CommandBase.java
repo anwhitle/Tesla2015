@@ -7,10 +7,10 @@ import org.usfirst.frc.team4998.robot.subsystems.*;
  *
  */
 public class CommandBase extends CommandGroup {
-    OI oi = new OI();
-    Lift lift = new Lift();
-    Chassis chassis = new Chassis();
-    Sensors sensors = new Sensors();
+    static OI oi = new OI();
+    static Lift lift = new Lift();
+    static Chassis chassis = new Chassis();
+    //Sensors sensors = new Sensors();
     //MechanumChassis chassis = new MechanumChassis(); 
     
     public  CommandBase() {

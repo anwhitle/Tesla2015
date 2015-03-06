@@ -9,6 +9,8 @@ public class Teleop extends CommandBase {
     public Teleop() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(chassis);
+    	requires(lift);
     
     }
 
@@ -39,14 +41,14 @@ public class Teleop extends CommandBase {
     		//chassis.drive(oi.stick1X(), oi.stick1Y(), oi.stick1Twist());
     	}
     	if (oi.getStick2Button1()){
-    		lift.move(1);
+    		lift.move(1.0);
     	} else if (oi.getStick2Button2()){
-    		lift.move(-1);
+    		lift.move(-1.0);
     	} else {
     		lift.move(0);
     	}
     	
-    	sensors.sensorsToDash();
+    	//sensors.sensorsToDash();
     	//sensors.updateX();
     	//sensors.updateY();
     }
