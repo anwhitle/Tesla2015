@@ -37,6 +37,7 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         teleopCommand = new Teleop();
         
+        //it is giving warning because autonChoice is static
         if (RobotMap.autonChoice == 1){
         	autonomousCommand = new PickupAuton();
         } else {
@@ -45,13 +46,11 @@ public class Robot extends IterativeRobot {
         
         //frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 
-        // the camera name (ex "cam0") can be found through the roborio web interface
         //session = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         //NIVision.IMAQdxConfigureGrab(session);
         
         //server = CameraServer.getInstance();
         //server.setQuality(50);
-        //the camera name (ex "cam0") can be found through the roborio web interface
         //server.startAutomaticCapture("cam0");
     }
 	

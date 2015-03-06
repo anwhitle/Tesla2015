@@ -1,6 +1,6 @@
 package org.usfirst.frc.team4998.robot.subsystems;
 
-//import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalInput;
 import org.usfirst.frc.team4998.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Talon;
@@ -14,21 +14,22 @@ public class Lift extends Subsystem {
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands
-	//DigitalInput topStop = new DigitalInput(0);
-	//DigitalInput bottomStop = new DigitalInput(1);
+	DigitalInput topStop, bottomStop;
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	topStop = new DigitalInput(2);
+    	bottomStop = new DigitalInput(1);
     }
     public void move(double speed){
     
-	    //if ((topStop.get() && speed<0) || (bottomStop.get() && speed>0) || (!topStop.get() && !bottomStop.get())){
+	    if ((topStop.get() && speed>0) || (bottomStop.get() && speed<0) || (!topStop.get() && !bottomStop.get())){
 	    	talon1.set(speed);
 	    	talon2.set(speed);
-	    /*} else {
+	    } else {
 	    	talon1.set(0);
 	    	talon2.set(0);
-	    }*/
+	    }
     }
 }

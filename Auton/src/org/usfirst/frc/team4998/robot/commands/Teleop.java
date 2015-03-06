@@ -40,9 +40,11 @@ public class Teleop extends CommandBase {
     		}
     		//chassis.drive(oi.stick1X(), oi.stick1Y(), oi.stick1Twist());
     	}
-    	if (oi.getStick2Button1()){
+    	
+    	//change to getStick2Button# for operator control
+    	if (oi.getStick1Button1()){
     		lift.move(1.0);
-    	} else if (oi.getStick2Button2()){
+    	} else if (oi.getStick1Button2()){
     		lift.move(-1.0);
     	} else {
     		lift.move(0);

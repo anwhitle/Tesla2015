@@ -33,12 +33,12 @@ public class PickupAuton extends CommandBase {
     	}
     	
     	lift.move(0);						//stop lift
-    	
+    	/*
     	driveTime = timer.get() + 0.5;
     	while(timer.get()< driveTime){		//turn right for 0.5 seconds		
     		chassis.drive(0, 0, 0.5, 0);
     	}
-    	
+    	*/
     	chassis.drive(0, 0, 0, 0);			//stop turning
     	
     	driveTime = timer.get() + 5;
@@ -60,7 +60,7 @@ public class PickupAuton extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
