@@ -25,6 +25,10 @@ public class RobotMap {
 	//ports for talons
 	public static final int talon1 = 4;
 	public static final int talon2 = 5;
+
+	//ports for switches
+	public static final int liftSwitch1 = 2;
+	public static final int liftSwitch2 = 1;
 	
 	//ports for encoders
 	public static final int encoder1port1 = 6;

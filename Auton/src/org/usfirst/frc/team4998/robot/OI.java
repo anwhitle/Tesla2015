@@ -37,18 +37,22 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 	
 	
-	
-	public static Joystick stick1 = new Joystick(RobotMap.Joystick1Port);
+	//declare joysticks
+	public static Joystick stick1 = new Joystick(RobotMap.Joystick1Port);  
 	public static Joystick stick2 = new Joystick(RobotMap.Joystick2Port);
 	
-	public static JoystickButton joy1Button1 = new JoystickButton(stick1,1);
+	//declare joystick buttons
+	public static JoystickButton joy1Button1 = new JoystickButton(stick1,1); 
 	public static JoystickButton joy1Button2 = new JoystickButton(stick1,2);
 	public static JoystickButton joy1Button3 = new JoystickButton(stick1,3);
+	public static JoystickButton joy1Button4 = new JoystickButton(stick1,2);
+	public static JoystickButton joy1Button5 = new JoystickButton(stick1,3);
 	public static JoystickButton joy2Button1 = new JoystickButton(stick2,1);
 	public static JoystickButton joy2Button2 = new JoystickButton(stick2,2);
 	public static JoystickButton joy2Button3 = new JoystickButton(stick2,3);
 	
-	public boolean getStick1Button1(){
+	//get the joystick button values
+	public boolean getStick1Button1(){  
 		return joy1Button1.get();
 	}
 	
@@ -58,6 +62,14 @@ public class OI {
 	
 	public boolean getStick1Button3(){
 		return joy1Button3.get();
+	}
+	
+	public boolean getStick1Button4(){
+		return joy1Button4.get();
+	}
+	
+	public boolean getStick1Button5(){
+		return joy1Button5.get();
 	}
 	
 	public boolean getStick2Button1(){
@@ -72,19 +84,22 @@ public class OI {
 		return joy2Button3.get();
 	}
 	
-	public double stick1X(){
+	//get joystick values 
+	public double stick1X(){  //x-axis values
 		return stick1.getX();
 	}
 	
-	public double stick1Y(){
+	public double stick1Y(){  //y-axis values
 		return stick1.getY();
 	}
 	
-	public double stick1Twist(){
+	public double stick1Twist(){	//twist values (the joystick can twist as well)
 		return stick1.getTwist();
 	}
 	
 	
+	
+	//not used but declares joystick buttons just the same as was done above
 	Button rightbutton1 = new JoystickButton(stick1,1),
 			rightbutton2 = new JoystickButton(stick1,2),
 			rightbutton3 = new JoystickButton(stick1,3),

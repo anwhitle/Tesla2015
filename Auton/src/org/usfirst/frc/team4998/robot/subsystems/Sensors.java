@@ -13,6 +13,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class Sensors extends Subsystem {
+	//another file not actually used..
+	//the idea was to declare sextra sensors here like gyro, ultrasonic, and encoders. We did not end up using these however (well we somewhat used gyro, but not in this file at least
+	
 	/*Ultrasonic ultrasonic1;
 	Ultrasonic ultrasonic2;
 	Encoder encoder1;

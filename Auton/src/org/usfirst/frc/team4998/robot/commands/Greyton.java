@@ -7,11 +7,12 @@ import edu.wpi.first.wpilibj.Timer;
 /**
  *
  */
-public class MoveAuton extends CommandBase {
-	//our most basic auton mode that we primarly used
+public class Greyton extends CommandBase {
+	//this was an "advanced" auton mode that we were working on
+	
 	double driveTime;
 	Timer timer;
-    public MoveAuton() {
+    public Greyton() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(chassis);
@@ -21,7 +22,7 @@ public class MoveAuton extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {  	
     	timer = new Timer();
-    	timer.start();		//start the timer
+    	timer.start();
     	driveTime = 0;
     }
 
@@ -42,9 +43,9 @@ public class MoveAuton extends CommandBase {
     	*/
     	//chassis.drive(0, 0, 0, 0);			//stop turning
     	
-    	driveTime = timer.get() + 4;
-    	while(timer.get()< driveTime){		//Move forward for 4 seconds
-    		chassis.drive(0, -0.5, 0, 0);
+    	driveTime = timer.get() + 2;
+    	while(timer.get()< driveTime){		//Move backwards for 2 seconds
+    		chassis.drive(0, 0.5, 0, 0);
     	}
     	
     	chassis.drive(0, 0, 0, 0);			//Stop moving
@@ -54,7 +55,31 @@ public class MoveAuton extends CommandBase {
     		lift.move(-0.5, false, false);
     	}
     	*/
-    	lift.move(0, false, false);						//stop droping
+    	//lift.move(0, false, false);						//stop droping
+    	
+    	driveTime = timer.get() + 4.5;
+    	while(timer.get()< driveTime){		//Move left for 4.5 seconds
+    		chassis.drive(-0.5, 0, 0, 0);
+    	}
+    	
+    	driveTime = timer.get() + 0.5;
+    	while(timer.get()< driveTime){		//Rotate for 0.5 seconds
+    		chassis.drive(0, 0, 0.5, 0);
+    	}
+    	
+    	driveTime = timer.get() + 0.5;
+    	while(timer.get()< driveTime){		//Move forwards for 0.5 seconds
+    		chassis.drive(0, -0.5, 0, 0);
+    	}
+    	
+    	chassis.drive(0, 0, 0, 0);			//Stop moving
+    	
+    	driveTime = timer.get() + 2.0;
+    	while(timer.get()< driveTime){		//lift for 2 seconds
+    		lift.move(-0.5, false, false);
+    	}
+    	
+    	lift.move(0, false, false);						//stop lift
     	
     }
 

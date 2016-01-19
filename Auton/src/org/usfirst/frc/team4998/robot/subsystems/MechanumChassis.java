@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.Victor;
 import org.usfirst.frc.team4998.robot.RobotMap;
 
 public class MechanumChassis extends Subsystem {
+	//we did not use this, but it is a way another team was coding their mechanum wheels
+	
     private Victor frontLeft, frontRight, rearLeft, rearRight;
     private Gyro gyro;
  

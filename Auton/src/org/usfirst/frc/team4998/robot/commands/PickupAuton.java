@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.Timer;
  *
  */
 public class PickupAuton extends CommandBase {
+	//another auton mode that we used
 	double driveTime;
 	Timer timer;
     public PickupAuton() {
@@ -27,33 +28,33 @@ public class PickupAuton extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	driveTime = timer.get() + 1.0;
-    	while(timer.get()< driveTime){		//lift for 1 second
-    		lift.move(0.5);
+    	driveTime = timer.get() + 2.0;
+    	while(timer.get()< driveTime){		//lift for 2 seconds
+    		lift.move(0.5, false, false);
     	}
     	
-    	lift.move(0);						//stop lift
+    	lift.move(0, false, false);						//stop lift
     	/*
     	driveTime = timer.get() + 0.5;
     	while(timer.get()< driveTime){		//turn right for 0.5 seconds		
     		chassis.drive(0, 0, 0.5, 0);
     	}
     	*/
-    	chassis.drive(0, 0, 0, 0);			//stop turning
+    	//chassis.drive(0, 0, 0, 0);			//stop turning
     	
-    	driveTime = timer.get() + 5;
-    	while(timer.get()< driveTime){		//Move forward for 5 seconds
+    	driveTime = timer.get() + 3;
+    	while(timer.get()< driveTime){		//Move forward for 3 seconds
     		chassis.drive(0, -0.5, 0, 0);
     	}
     	
     	chassis.drive(0, 0, 0, 0);			//Stop moving
-    
-    	driveTime = timer.get() + 1.0;
-    	while(timer.get()< driveTime){		//drop for 1 second
-    		lift.move(-0.5);
+/*    
+    	driveTime = timer.get() + 2.0;
+    	while(timer.get()< driveTime){		//drop for 2 seconds
+    		lift.move(-0.5, false, false);
     	}
-    	
-    	lift.move(0);						//stop droping
+  */  	
+    	lift.move(0, false, false);						//stop droping
     	
     }
 
